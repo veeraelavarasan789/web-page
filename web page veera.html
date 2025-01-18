@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container, .dashboard-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .login-container h2, .dashboard-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .dashboard-container {
+            display: none;
+            text-align: center;
+        }
+
+        .dashboard-container nav a {
+            margin: 0 15px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .dashboard-container nav a:hover {
+            text-decoration: underline;
+        }
+
+        .dashboard-container button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .dashboard-container button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Login Form Section -->
+    <div class="login-container" id="loginSection">
+        <form id="loginForm">
+            <h2>Login</h2>
+
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="validateLogin()">Login</button>
+
+            <div class="footer">
+                <p>Don't have an account? <a href="#">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Dashboard Section (hidden initially) -->
+    <div class="dashboard-container" id="dashboardSection">
+        <h2>Welcome, I AM VEERA</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+        <div class="dashboard-content">
+            <p>This is your personal dashboard. Manage your settings here.</p>
+            <button onclick="manageSettings()">Manage Settings</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to validate login
+        function validateLogin() {
+            const validUsername = 'veera';
+            const validPassword = 'veera123';
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === validUsername && password === validPassword) {
+                // Hide login form and show dashboard
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('dashboardSection').style.display = 'block';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+
+        // Function to logout (reset to login page)
+        function logout() {
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('dashboardSection').style.display = 'none';
+        }
+
+        // Function to simulate managing settings (just a placeholder)
+        function manageSettings() {
+            alert("Manage your settings here!");
+        }
+    </script>
+
+</body>
+</html>
